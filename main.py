@@ -16,24 +16,23 @@ def convert():
                 b = float(input("Second number: "))
                 if what == "+":
                     c = a + b
-                    print("result:" + str(c))
+                    print("result: " + str(c))
                 elif what == "-":
                     c = a - b
-                    print("result:" + str(c))
+                    print("result: " + str(c))
                 elif what == "*":
                     c = a * b
-                    print("result:" + str(c))
+                    print("result: " + str(c))
                 elif what == "/":
                     c = a / b
-                    print("result:" + str(c))
+                    print("result: " + str(c))
                 elif what == "//":
                     c = a // b
-                    print("result:" + str(c))
+                    print("result: " + str(c))
                 elif what == "%":
                     c = a % b
-                    print("result:" + str(c))
-        #elif Start == "sqrteq":
-
+                    print("result: " + str(c))
+        # elif Start == "sqrteq":
 
 
 convert()
