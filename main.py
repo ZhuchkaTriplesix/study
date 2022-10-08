@@ -5,7 +5,7 @@ import math
 
 
 def convert():
-    Start = input("Choose one: (calc, factorial, sqrteq):")
+    Start = input("Choose one: (calc, factorial):")
     if Start not in ("calc", "factorial", "sqrteq"):
         print("invalid argument")
     else:
@@ -36,7 +36,7 @@ def convert():
                     c = a % b
                     print("result: " + str(c))
         elif Start == "factorial":
-            method = input("Choose the method: (loop or recursion)")
+            method = input("Choose the method: (loop)")
             if method not in ("loop", "recursion"):
                 print("invalid character")
             else:
