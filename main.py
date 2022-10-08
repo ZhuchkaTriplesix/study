@@ -10,6 +10,12 @@ def floatCheck(num):
     except ValueError:
         return False
 
+def factorialRecursive(n):
+    if n == 1:
+        return n
+    else:
+        return n*factorialRecursive(n-1)
+
 
 def convert():
     start = input("Choose one: \n1. Calc\n2. Factorial \n")
@@ -53,8 +59,8 @@ def convert():
                     print("Invalid first input")
 
         elif start == "2":
-            method = input("Choose the method: (loop)")
-            if method not in ("\n1. Loop \n2. Recursion"):
+            method = input("Choose the method: \n1. Loop\n2. Recursive\n")
+            if method not in ("1", "2"):
                 print("Invalid character")
             else:
                 if method == "1":
@@ -67,6 +73,17 @@ def convert():
                         print(factorial)
                     else:
                         print("Invalid input")
+                elif method == "2":
+                    number = input("Input your number: ")
+                    bool = number.isdigit()
+                    if bool:
+                        res = factorialRecursive(int(number))
+                        print(res)
+                    else:
+                        print("Number expected")
+                else:
+                    print("Invalid method")
+
 
 
 convert()
