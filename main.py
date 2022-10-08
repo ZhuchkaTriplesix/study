@@ -1,8 +1,6 @@
 import math
 
 
-# add a new function sqrteq
-
 def floatCheck(num):
     try:
         float(num)
@@ -10,11 +8,12 @@ def floatCheck(num):
     except ValueError:
         return False
 
+
 def factorialRecursive(n):
     if n == 1:
         return n
     else:
-        return n*factorialRecursive(n-1)
+        return n * factorialRecursive(n - 1)
 
 
 def convert():
@@ -83,7 +82,6 @@ def convert():
                         print("Number expected")
                 else:
                     print("Invalid method")
-
 
 
 convert()
