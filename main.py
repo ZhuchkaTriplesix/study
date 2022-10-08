@@ -13,7 +13,7 @@ def floatCheck(num):
 
 def convert():
     start = input("Choose one: \n1. Calc\n2. Factorial \n")
-    if start not in ("1", "2", "3"):
+    if start not in ("1", "2"):
         print("Invalid argument")
     else:
         if start == "1":
