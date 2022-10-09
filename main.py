@@ -1,23 +1,4 @@
-<<<<<<< HEAD
-import math
-
-
-def floatCheck(num):
-    try:
-        float(num)
-        return True
-    except ValueError:
-        return False
-
-
-def factorialRecursive(n):
-    if n == 1:
-        return n
-    else:
-        return n * factorialRecursive(n - 1)
-=======
 import functions
->>>>>>> develop
 
 
 def convert():
@@ -36,6 +17,7 @@ def convert():
         elif start == "2":
             num = input("Input your number: \n")
             print(functions.factorial_recursive(int(num)))
+
 
 convert()
 while True:
