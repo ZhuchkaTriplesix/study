@@ -22,22 +22,22 @@ def calculator(num1, num2, sign):
         if num_check1 or num_check2:
             if sign == "+":
                 result = float(num1) + float(num2)
-                print("Result: " + str(result))
+                return result
             elif sign == "-":
                 result = float(num1) - float(num2)
-                print("Result: " + str(result))
+                return result
             elif sign == "*":
                 result = float(num1) * float(num2)
-                print("Result: " + str(result))
+                return result
             elif sign == "/":
                 result = float(num1) / float(num2)
-                print("Result: " + str(result))
+                return result
             elif sign == "//":
                 result = float(num1) // float(num2)
-                print("Result: " + str(result))
+                return result
             elif sign == "%":
                 result = float(num1) % float(num2)
-                print("Result: " + str(result))
+                return result
         else:
             print("Invalid second input")
     else:

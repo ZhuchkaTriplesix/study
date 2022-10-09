@@ -13,7 +13,7 @@ def convert():
             else:
                 num1 = input("First number: ")
                 num2 = input("Second number: ")
-                functions.calculator(num1, num2, sign)
+                print(functions.calculator(num1, num2, sign))
         elif start == "2":
             num = input("Input your number: \n")
             print(functions.factorial_recursive(int(num)))
