@@ -1,4 +1,11 @@
 import math
+import random
+
+
+def list_of_random_numbers():
+    items = list(range(2000000))
+    print(items)
+    random.shuffle(items)
 
 
 def quadratic_equation(a, b, c):
