@@ -2,8 +2,8 @@ import functions
 
 
 def convert():
-    start = input("Choose one: \n1. Calc\n2. Factorial \n")
-    if start not in ("1", "2"):
+    start = input("Choose one: \n1. Calc\n2. Factorial \n3. Quadratic equation \n")
+    if start not in ("1", "2", "3"):
         print("Invalid argument")
     else:
         if start == "1":
@@ -17,6 +17,13 @@ def convert():
         elif start == "2":
             num = input("Input your number: \n")
             print(functions.factorial_recursive(int(num)))
+        elif start == "3":
+            print("ax^2 + bx + c = 0:")
+            print("Enter the coefficients for the equation\n")
+            a = float(input("a = "))
+            b = float(input("b = "))
+            c = float(input("c = "))
+            print(functions.quadratic_equation(a, b, c))
 
 
 convert()
