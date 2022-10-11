@@ -2,6 +2,11 @@ import math
 import random
 
 
+def is_palindrome(string):
+    reversed_string = string[::-1]
+    return string == reversed_string
+
+
 def list_of_random_numbers():
     items = list(range(2000000))
     print(items)

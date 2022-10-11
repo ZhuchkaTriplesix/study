@@ -2,8 +2,8 @@ import functions
 
 
 def convert():
-    start = input("Choose one: \n1. Calc\n2. Factorial \n3. Quadratic equation \n4. List of random numbers\n")
-    if start not in ("1", "2", "3", "4"):
+    start = input("Choose one: \n1. Calc\n2. Factorial \n3. Quadratic equation \n4. Random numbers\n5. Is Palindrome\n")
+    if start not in ("1", "2", "3", "4", "5"):
         print("Invalid argument")
     else:
         if start == "1":
@@ -26,6 +26,9 @@ def convert():
             print(functions.quadratic_equation(a, b, c))
         elif start == "4":
             functions.list_of_random_numbers()
+        elif start == "5":
+            string = input("Input smth")
+            print(functions.is_palindrome(string))
 
 
 convert()
