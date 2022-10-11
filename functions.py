@@ -8,9 +8,8 @@ def is_palindrome(string):
 
 
 def list_of_random_numbers():
-    items = list(range(2000000))
+    items = [random.randint(0, 2000000) for i in range(2000000)]
     print(items)
-    random.shuffle(items)
 
 
 def quadratic_equation(a, b, c):
@@ -38,6 +37,8 @@ def float_check(num):
 def factorial_recursive(num):
     if num == 1:
         return num
+    elif num < 0:
+        print("Incorrect value")
     else:
         return num * factorial_recursive(num - 1)
 
