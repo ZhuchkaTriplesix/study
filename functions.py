@@ -2,6 +2,15 @@ import math
 import random
 
 
+def input_check_numbers(num):
+    float_check_input = float_check(num)
+    int_check_input = num.isdigit()
+    if float_check_input or int_check_input:
+        return num
+    else:
+        print("Input error")
+
+
 def is_palindrome(string):
     reversed_string = string[::-1]
     return string == reversed_string
@@ -43,32 +52,25 @@ def factorial_recursive(num):
         return num * factorial_recursive(num - 1)
 
 
-def calculator(num1, num2, sign):
-    num_check1 = float_check(num1)
-    num_check2 = num1.isdigit()
-    if num_check1 or num_check2:
-        num_check1 = float_check(num2)
-        num_check2 = num2.isdigit()
-        if num_check1 or num_check2:
-            if sign == "+":
-                result = float(num1) + float(num2)
-                return result
-            elif sign == "-":
-                result = float(num1) - float(num2)
-                return result
-            elif sign == "*":
-                result = float(num1) * float(num2)
-                return result
-            elif sign == "/":
-                result = float(num1) / float(num2)
-                return result
-            elif sign == "//":
-                result = float(num1) // float(num2)
-                return result
-            elif sign == "%":
-                result = float(num1) % float(num2)
-                return result
-        else:
-            print("Invalid second input")
-    else:
-        print("Invalid first input")
+def calculator(first_number, second_number, sign):
+    first_number_check = input_check_numbers(first_number)
+    second_number_check = input_check_numbers(second_number)
+    if first_number_check or second_number_check:
+        if sign == "+":
+            result = float(first_number) + float(second_number)
+            return result
+        elif sign == "-":
+            result = float(first_number) - float(second_number)
+            return result
+        elif sign == "*":
+            result = float(first_number) * float(second_number)
+            return result
+        elif sign == "/":
+            result = float(first_number) / float(second_number)
+            return result
+        elif sign == "//":
+            result = float(first_number) // float(second_number)
+            return result
+        elif sign == "%":
+            result = float(first_number) % float(second_number)
+            return result
