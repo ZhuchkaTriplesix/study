@@ -5,4 +5,5 @@ def convert():
     ui.main_menu()
 
 
-convert()
+if __name__ == '__main__':
+    convert()

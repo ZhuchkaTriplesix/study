@@ -1,5 +1,6 @@
 import math
 import random
+import introduction
 
 
 def input_check_numbers(num):
@@ -9,6 +10,7 @@ def input_check_numbers(num):
         return num
     else:
         print("Input error")
+        introduction.repeat_input()
 
 
 def is_palindrome(string):
@@ -19,6 +21,7 @@ def is_palindrome(string):
 def list_of_random_numbers():
     items = [random.randint(0, 2000000) for i in range(2000000)]
     print(items)
+    introduction.repeat_input()
 
 
 def quadratic_equation(a, b, c):
@@ -28,11 +31,14 @@ def quadratic_equation(a, b, c):
         x2 = (-b - math.sqrt(discriminant)) / (2 * a)
         print("x1 = ", x1)
         print("x2 = ", x2)
+        introduction.repeat_input()
     elif discriminant == 0:
         x = -b / (2 * a)
         print("x = ", x)
+        introduction.repeat_input()
     else:
         print("No roots")
+        introduction.repeat_input()
 
 
 def float_check(num):
