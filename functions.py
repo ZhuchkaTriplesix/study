@@ -3,16 +3,6 @@ import random
 import introduction
 
 
-def input_check_numbers(num):
-    float_check_input = float_check(num)
-    int_check_input = num.isdigit()
-    if float_check_input or int_check_input:
-        return num
-    else:
-        print("Input error")
-        introduction.repeat_input()
-
-
 def is_palindrome(string):
     reversed_string = string[::-1]
     return string == reversed_string
@@ -41,14 +31,6 @@ def quadratic_equation(a, b, c):
         introduction.repeat_input()
 
 
-def float_check(num):
-    try:
-        float(num)
-        return True
-    except ValueError:
-        return False
-
-
 def factorial_recursive(num):
     if num == 1:
         return num
@@ -59,24 +41,22 @@ def factorial_recursive(num):
 
 
 def calculator(first_number, second_number, sign):
-    first_number_check = input_check_numbers(first_number)
-    second_number_check = input_check_numbers(second_number)
+    first_number_check = introduction.input_check_number(first_number)
+    second_number_check = introduction.input_check_number(second_number)
     if first_number_check or second_number_check:
-        if sign == "+":
-            result = float(first_number) + float(second_number)
-            return result
-        elif sign == "-":
-            result = float(first_number) - float(second_number)
-            return result
-        elif sign == "*":
-            result = float(first_number) * float(second_number)
-            return result
-        elif sign == "/":
-            result = float(first_number) / float(second_number)
-            return result
-        elif sign == "//":
-            result = float(first_number) // float(second_number)
-            return result
-        elif sign == "%":
-            result = float(first_number) % float(second_number)
-            return result
+        match sign:
+            case "+":
+                return float(first_number) + float(second_number)
+            case "-":
+                return float(first_number) - float(second_number)
+            case "/":
+                return float(first_number) / float(second_number)
+            case "//":
+                return float(first_number) // float(second_number)
+            case "%":
+                return float(first_number) % float(second_number)
+            case "*":
+                return float(first_number) * float(second_number)
+            case _:
+                print("Invalid input")
+                introduction.repeat_input()
