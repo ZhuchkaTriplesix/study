@@ -1,7 +1,9 @@
 import sys
-import keyboard
 import time
-import main
+
+import keyboard
+from interface import menu
+import constants
 
 
 def float_check(num):
@@ -23,15 +25,15 @@ def input_check_number(num):
 
 
 def key_check():
-    time.sleep(1)
+    time.sleep(constants.delay)
     key = keyboard.read_key()
-    time.sleep(0.5)
+    time.sleep(constants.delay)
     return key
 
 
 def repeat_input():
     flag = input('One more time? [y/n]: ')
     if flag == 'y':
-        main.convert()
+        menu.main_menu()
     else:
         sys.exit()

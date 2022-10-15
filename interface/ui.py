@@ -1,8 +1,9 @@
+import time
 import functions
 import sys
-import menu
+from interface import menu
 import introduction
-import time
+import constants
 
 
 def main_menu_key():
@@ -34,13 +35,13 @@ def menu_number_key():
     match number_of_menu:
         case "1":
             menu.menu_calculator()
-            time.sleep(0.5)
+            time.sleep(constants.delay)
         case "2":
             factorial()
-            time.sleep(0.5)
+            time.sleep(constants.delay)
         case "3":
             menu.quadratic_equations()
-            time.sleep(0.5)
+            time.sleep(constants.delay)
         case "4":
             menu.main_menu()
         case "5":
@@ -55,7 +56,7 @@ def menu_string_key():
     match number_of_string:
         case "1":
             is_palindrome()
-            time.sleep(0.5)
+            constants.delay()
         case "2":
             menu.main_menu()
         case "3":
@@ -72,12 +73,19 @@ def menu_list_key():
             functions.list_of_random_numbers()
             time.sleep(0.5)
         case "2":
-            menu.main_menu()
+            menu.menu_flexible_list()
         case "3":
+            menu.main_menu()
+        case "4":
             sys.exit()
         case _:
             print("\nInvalid input")
             introduction.repeat_input()
+
+
+def menu_flexible_list_key():
+    number_of_list = introduction.key_check()
+    return number_of_list
 
 
 def menu_help_key():

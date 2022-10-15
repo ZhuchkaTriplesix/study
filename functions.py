@@ -1,6 +1,10 @@
 import math
 import random
+import sys
+import time
+
 import introduction
+from interface import menu
 
 
 def is_palindrome(string):
@@ -9,8 +13,10 @@ def is_palindrome(string):
 
 
 def list_of_random_numbers():
-    items = [random.randint(0, 2000000) for i in range(2000000)]
-    print(items)
+    time_before = time.perf_counter()
+    [random.randint(0, 2000000) for i in range(2000000)]
+    time_after = time.perf_counter()
+    print("\nTime spend:", round(time_after - time_before, 2), "sec")
     introduction.repeat_input()
 
 
@@ -60,3 +66,76 @@ def calculator(first_number, second_number, sign):
             case _:
                 print("Invalid input")
                 introduction.repeat_input()
+
+
+items = []
+
+
+def flexible_list(key):
+    match key:
+        case "1":
+            add_items()
+        case "2":
+            edit_items()
+        case "3":
+            remove_items()
+        case "4":
+            print_items()
+        case "5":
+            menu.menu_list()
+        case "6":
+            sys.exit()
+
+
+def delay_and_back():
+    time.sleep(0.5)
+    menu.menu_flexible_list()
+
+
+def add_items():
+    print("\nEnter the content which you want to add:")
+    element = str(input())
+    items.append(element)
+    print("\nElement was added successfully!")
+    delay_and_back()
+
+
+def edit_items():
+    length = len(items)
+    if length != 0:
+        print(f"\nEnter the index of element which you want to edit (from 0 to {length - 1}): \n")
+        element_index = str(input())
+        if element_index.isdigit() and (length > int(element_index) >= 0):
+            print("\nEnter the content of element")
+            element_content = str(input())
+            items[int(element_index)] = element_content
+            print("\nElement was edited successfully!")
+            delay_and_back()
+        else:
+            print("\nInvalid input")
+            delay_and_back()
+    else:
+        print("\nNo items to edit")
+        delay_and_back()
+
+
+def remove_items():
+    length = len(items)
+    if length != 0:
+        print(f"\nEnter the index of element which you want to remove (from 0 to {length - 1}): \n")
+        element_index = str(input())
+        if element_index.isdigit() and (length > int(element_index) >= 0):
+            items.pop(int(element_index))
+            print("\nElement was removed successfully!")
+            delay_and_back()
+        else:
+            print("\nInvalid input")
+            delay_and_back()
+    else:
+        print("\nNo items to remove")
+        delay_and_back()
+
+
+def print_items():
+    print(f"\n{items}")
+    delay_and_back()
