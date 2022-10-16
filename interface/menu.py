@@ -1,3 +1,6 @@
+import time
+
+import constants
 import functions
 import introduction
 from interface import ui
@@ -18,31 +21,24 @@ def main_menu():
 
 def menu_numbers():
     print("\nNumber menu:")
-    list_of_titles = ["Calculator", "Factorial", "Quadratic equation", "Main menu", "Quit"]
+    list_of_titles = ["Calculator", "Factorial", "Quadratic equation", "Back", "Quit"]
     menu_generate(len(list_of_titles), list_of_titles)
     ui.menu_number_key()
 
 
 def menu_strings():
     print("\nString menu:")
-    list_of_titles = ["Palindrome", "Main menu", "Quit"]
+    list_of_titles = ["Palindrome", "Back", "Quit"]
     menu_generate(len(list_of_titles), list_of_titles)
     ui.menu_string_key()
 
 
-def menu_stack():
-    print("\nStack menu:")
-    list_of_titles = ["List of random numbers", "Main menu", "Quit"]
-    menu_generate(len(list_of_titles), list_of_titles)
-    ui.menu_list_key()
-
-
 def menu_help():
-    print(" \nYou can make a choice by using numbers 1/2/3..etc..")
-    print(" Press '1' to return to main menu.\n3. Press '2' to exit the program")
-    list_of_titles =["Main menu", "Quit"]
+    print("\nYou can make a choice by using numbers: 1,2,3..."
+          "\nPress '1' to return to main menu.\nPress '2' to quit from program.")
+    list_of_titles = ["Back", "Quit"]
     menu_generate(len(list_of_titles), list_of_titles)
-    ui.menu_number_key()
+    ui.menu_help_key()
 
 
 def quadratic_equations():
@@ -51,28 +47,55 @@ def quadratic_equations():
     a = float(input("a = "))
     b = float(input("b = "))
     c = float(input("c = "))
-    print(functions.quadratic_equation(a, b, c))
-    introduction.repeat_input()
+    functions.quadratic_equation(a, b, c)
+    menu_numbers()
 
 
 def menu_calculator():
+    time.sleep(constants.delay)
     first_number = input("\nFirst number: ")
     second_number = input("Second number: ")
-    print("Choose the operator (+, -, *, /, //, %): ")
-    sign = input()
-    print(functions.calculator(first_number, second_number, sign))
-    introduction.repeat_input()
+    list = ["+", "-", "*", "/", "//", "%", "Back", "Quit"]
+    menu_generate(len(list), list)
+    key = introduction.key_check()
+    time.sleep(constants.delay)
+    print("\nResult:", functions.calculator(first_number, second_number, key))
+    menu_numbers()
 
 
 def menu_list():
     print("\nList menu:")
-    list = ["List of random numbers", "Flexible list", "Main menu", "Quit"]
+    list = ["List of random numbers", "Flexible list", "Back", "Quit"]
     menu_generate(len(list), list)
     ui.menu_list_key()
+
 
 def menu_flexible_list():
     print("\nFlexible list menu:")
     list = ["Add", "Edit", "Remove", "Print *", "Back", "Quit"]
     menu_generate(len(list), list)
-    key = ui.menu_flexible_list_key()
+    key = ui.menu_flexible_list_and_queue_key()
     functions.flexible_list(key)
+
+
+def menu_queue():
+    print("\nQueue menu:")
+    list = ["Flexible queue", "Back", "Back", "Quit"]
+    menu_generate(len(list), list)
+    ui.menu_queue_key()
+
+
+def menu_flexible_queue():
+    print("\nFlexible queue menu:")
+    list = ["Add", "Edit", "Remove", "Print *", "Back", "Quit"]
+    menu_generate(len(list), list)
+    key = ui.menu_flexible_list_and_queue_key()
+    functions.flexible_queue(key)
+
+
+def menu_add_items_queue():
+    print("\nAdd items menu:")
+    list = ["Add in start", "Add in end"]
+    menu_generate(len(list), list)
+    key = ui.menu_flexible_list_and_queue_key()
+    functions.add_queue(key)

@@ -32,8 +32,14 @@ def key_check():
 
 
 def repeat_input():
-    flag = input('One more time? [y/n]: ')
-    if flag == 'y':
-        menu.main_menu()
-    else:
-        sys.exit()
+    print('\nOne more time? [y/n]: ')
+    time.sleep(constants.delay)
+    key = keyboard.read_key()
+    time.sleep(constants.delay)
+    match key:
+        case "y":
+            menu.main_menu()
+        case "n":
+            sys.exit()
+        case _:
+            repeat_input()

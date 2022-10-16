@@ -4,7 +4,9 @@ import sys
 from interface import menu
 import introduction
 import constants
+from colorama import init, Fore, Style
 
+init()
 
 def main_menu_key():
     menu_key = introduction.key_check()
@@ -16,8 +18,7 @@ def main_menu_key():
         case "3":
             menu.menu_list()
         case "4":
-            print("Soon...")
-            menu.main_menu()
+            menu.menu_queue()
         case "5":
             print("Soon...")
             menu.main_menu()
@@ -83,7 +84,21 @@ def menu_list_key():
             introduction.repeat_input()
 
 
-def menu_flexible_list_key():
+def menu_queue_key():
+    number_of_list = introduction.key_check()
+    match number_of_list:
+        case "1":
+            menu.menu_flexible_queue()
+        case "2":
+            menu.main_menu()
+        case "3":
+            sys.exit()
+        case _:
+            print("\nInvalid input")
+            introduction.repeat_input()
+
+
+def menu_flexible_list_and_queue_key():
     number_of_list = introduction.key_check()
     return number_of_list
 
@@ -102,11 +117,16 @@ def menu_help_key():
 
 def is_palindrome():
     string = input("\nInput the string: ")
-    print(functions.is_palindrome(string))
-    introduction.repeat_input()
+    res = functions.is_palindrome(string)
+    if res:
+        print("\nResult:", Fore.GREEN+f"{res}")
+    else:
+        print("\nResult:", Fore.RED+f"{res}")
+    print(Style.RESET_ALL)
+    menu.menu_strings()
 
 
 def factorial():
     num = input("\nInput your number: \n")
-    print(functions.factorial_recursive(int(num)))
-    introduction.repeat_input()
+    print("\nResult:", functions.factorial_recursive(int(num)))
+    menu.menu_numbers()
