@@ -20,11 +20,11 @@ def input_check_number(num):
     if float_check_input or int_check_input:
         return num
     else:
-        print("Input error")
+        print("\nInput error")
         repeat_input()
 
 
-def key_check():
+def key_check() -> str:
     time.sleep(constants.delay)
     key = keyboard.read_key()
     time.sleep(constants.delay)

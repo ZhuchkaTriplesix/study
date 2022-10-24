@@ -43,10 +43,11 @@ def menu_help():
 
 def quadratic_equations():
     print("\nax^2 + bx + c = 0:")
-    print("Enter the coefficients for the equation\n")
-    a = float(input("a = "))
-    b = float(input("b = "))
-    c = float(input("c = "))
+    print("Enter the coefficients for the equation by spaces:\n")
+    a, b, c = input().strip().split()
+    for i in (a, b, c):
+        introduction.input_check_number(i)
+    a, b, c = map(float, (a, b, c))
     functions.quadratic_equation(a, b, c)
     menu_numbers()
 
@@ -80,7 +81,7 @@ def menu_flexible_list():
 
 def menu_queue():
     print("\nQueue menu:")
-    list = ["Flexible queue", "Back", "Back", "Quit"]
+    list = ["Flexible queue", "Back", "Quit"]
     menu_generate(len(list), list)
     ui.menu_queue_key()
 

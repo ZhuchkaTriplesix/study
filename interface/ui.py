@@ -98,7 +98,7 @@ def menu_queue_key():
             introduction.repeat_input()
 
 
-def menu_flexible_list_and_queue_key():
+def menu_flexible_list_and_queue_key() -> str:
     number_of_list = introduction.key_check()
     return number_of_list
 
