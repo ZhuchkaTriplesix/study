@@ -117,6 +117,75 @@ def add_or_remove_check(len_before, len_after, is_add):
         print("Element was added successfully!") if len_after != len_before else print("Something went wrong :c")
     else:
         print("Element was removed successfully!") if len_after != len_before else print("Something went wrong :c")
+    else:
+        print("\nResult: No roots")
+
+
+def factorial_recursive(num: int) -> int:
+    return num if num == 1 else "Incorrect value" if num < 0 else (num * factorial_recursive(num - 1))
+
+
+def calculator(first_number, second_number, key):
+    for i in (first_number, second_number):
+        introduction.input_check_number(i)
+    first_number, second_number = map(float, [first_number, second_number])
+    match key:
+        case "1":
+            return first_number + second_number
+        case "2":
+            return first_number - second_number
+        case "3":
+            return first_number * second_number
+        case "4":
+            try:
+                return first_number / second_number
+            except ZeroDivisionError:
+                return "Division by zero is not allowed"
+        case "5":
+            try:
+                return first_number // second_number
+            except ZeroDivisionError:
+                return "Division by zero is not allowed"
+        case "6":
+            try:
+                return first_number % second_number
+            except ZeroDivisionError:
+                return "Division by zero is not allowed"
+        case "7":
+            menu.menu_numbers()
+        case "8":
+            sys.exit()
+        case _:
+            print("\nInvalid input")
+    menu.menu_numbers()
+
+
+items = []
+queue = []
+
+for i in range(10):
+    items.append("Element" + str(i))
+    queue.append("Element" + str(i))
+
+
+def flexible_list(key):
+    is_list = True
+    match key:
+        case "1":
+            add_items_to_list()
+        case "2":
+            edit_items_in_list()
+        case "3":
+            remove_items_from_list()
+        case "4":
+            print_items(is_list)
+        case "5":
+            menu.menu_list()
+        case "6":
+            sys.exit()
+        case _:
+            print("\nInvalid input")
+
 
 
 def delay_and_back(is_list):
@@ -252,6 +321,26 @@ def remove_items_from_queue():
                 delay_and_back(is_list)
             else:
                 "туц туц туц, а бебра тутутутуц"
+    else:
+        print("\nNo items to edit")
+        delay_and_back(is_list)
+
+
+def remove_items_from_list():
+    is_list = True
+    is_add = False
+    len_before = len(items)
+    if len_before != 0:
+        print(f"\nEnter the index of element which you want to remove (from 0 to {len_before - 1}): \n")
+        element_index = str(input())
+        if element_index.isdigit():
+            if len_before > int(element_index) >= 0:
+                items.pop(int(element_index))
+                len_after = len(items)
+                add_or_remove_check(len_before, len_after, is_add)
+                delay_and_back(is_list)
+            else:
+                print("\nInvalid index")
 
         else:
             print("\nInvalid input")
@@ -259,3 +348,94 @@ def remove_items_from_queue():
     else:
         print("\nNo items to remove")
         delay_and_back(is_list)
+
+
+def print_items(is_list):
+    print(f"\n{items}") if is_list else print(f"\n{queue}")
+    delay_and_back(is_list)
+
+
+def flexible_queue(key):
+    is_list = False
+    match key:
+        case "1":
+            menu.menu_add_items_queue()
+        case "2":
+            edit_items_in_queue()
+        case "3":
+            remove_items_from_queue()
+        case "4":
+            print_items(is_list)
+        case "5":
+            menu.menu_list()
+        case "6":
+            sys.exit()
+
+
+def add_queue(key):
+    is_start = True
+    match key:
+        case "1":
+            add_items_to_queue(is_start)
+        case "2":
+            is_start = False
+            add_items_to_queue(is_start)
+        case _:
+            print("Invalid input")
+
+
+def add_items_to_queue(is_start):
+    is_list = False
+    is_add = True
+    len_before = len(queue)
+    print("\nEnter the content which you want to add:")
+    element = str(input())
+    queue.appendleft(element) if is_start else queue.append(element)
+    len_after = len(queue)
+    add_or_remove_check(len_before, len_after, is_add)
+    delay_and_back(is_list)
+
+
+def edit_items_in_queue():
+    is_list = False
+
+
+def remove_items_from_queue():
+    is_list = False
+    is_add = False
+    len_before = len(queue)
+    if len_before != 0:
+        print(f"\nEnter the index of element which you want to remove (from 0 to {len_before - 1}): \n")
+        element_index = str(input())
+        if element_index.isdigit() and (len_before > int(element_index)):
+            if int(element_index) == (len_before - 1):  # If equal last index
+                queue.pop()
+                len_after = len(queue)
+                add_or_remove_check(len_before, len_after, is_add)
+                delay_and_back(is_list)
+            elif int(element_index) == 0:
+                queue.popleft()
+                len_after = len(queue)
+                add_or_remove_check(len_before, len_after, is_add)
+                delay_and_back(is_list)
+            else:
+                print("Invalid choose")
+
+        else:
+            print("\nInvalid input")
+            delay_and_back(is_list)
+    else:
+        print("\nNo items to remove")
+        delay_and_back(is_list)
+
+
+def electric_queue():
+    people = int(input('People in queue: '))
+    for hour in range(people + 1):
+        print('Hour left: ', hour)
+        for num in range(hour, people):
+            print("Number in queue: ", num)
+        print()
+    print("All done!")
+    introduction.repeat_input()
+

@@ -1,6 +1,5 @@
 import sys
 import time
-
 import keyboard
 from interface import menu
 import constants
